@@ -1,18 +1,29 @@
 class Terremoto {
-  double valoreMagnitudo;
-  String tipoMagnitudo;
-  String ora;
-  String data;
-  String localita;
-  String profondita;
-  String link;
+  final double valoreMagnitudo;
+  final String tipoMagnitudo;
+  final String ora;
+  final String data;
+  final String localita;
+  final double profondita;
+  final String link;
 
-  Terremoto(Map<String, dynamic> data) {
-    valoreMagnitudo = data['valoreMagnitudo'];
-    tipoMagnitudo = data['tipoMagnitudo'];
-    ora = data['ora'];
-    data = data['data'];
-    localita = data['localita'];
-    link = data['link'];
+  Terremoto(
+      {this.valoreMagnitudo,
+      this.tipoMagnitudo,
+      this.ora,
+      this.data,
+      this.localita,
+      this.profondita,
+      this.link});
+
+  factory Terremoto.fromJson(Map<String, dynamic> json) {
+    return Terremoto(
+        valoreMagnitudo: json['valoreMagnitudo'] as double,
+        tipoMagnitudo: json['tipoMagnitudo'] as String,
+        ora: json['ora'] as String,
+        data: json['data'] as String,
+        localita: json['localita'] as String,
+        profondita: json['profondita'] as double,
+        link: json['link'] as String);
   }
 }
