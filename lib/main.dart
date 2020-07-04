@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'AppQuake',
       theme: ThemeData(
         primaryColor: Colors.white,
+        accentColor: Colors.black,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Home(),

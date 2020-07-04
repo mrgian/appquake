@@ -1,3 +1,5 @@
+import 'package:appquake/service/webclient.dart';
+import 'package:appquake/widgets/TerremotoCard.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -15,11 +17,19 @@ class Home extends StatelessWidget {
         ),
         elevation: 0.0,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
-        ),
+      body: FutureBuilder(
+        future: WebClient.getTerremoti(),
+        builder: (context, snap) {
+          if (snap.hasData)
+            return ListView.builder(
+              itemCount: snap.data.length,
+              itemBuilder: (context, i) {
+                return TerremotoCard(data: snap.data[i]);
+              },
+            );
+          else
+            return Center(child: CircularProgressIndicator());
+        },
       ),
     );
   }
