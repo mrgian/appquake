@@ -28,12 +28,9 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   fonts:
-    - family: helvetica
+    - family: googlesans
       fonts:
-        - asset: assets/fonts/helvetica.ttf
-    - family: sanfrancisco
-      fonts:
-        - asset: assets/fonts/sanfrancisco.otf
+        - asset: assets/fonts/googlesans.ttf
 
   # fonts:
   #   - family: Schyler
