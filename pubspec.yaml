@@ -1,5 +1,5 @@
 name: appquake
-description: App mobile che mostra i terremoti registrati dalla Rete Sismica Nazionale negli ultimi sette giorni
+description: App mobile che mostra i terremoti registrati negli ultimi sette giorni
 
 publish_to: 'none'
 
