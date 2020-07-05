@@ -14,7 +14,7 @@ class AppBarGradient extends StatelessWidget {
               end: Alignment.bottomCenter,
               stops: [0.3, 0.7],
               colors: [Colors.white, Colors.white.withOpacity(0)])),
-      child: SizedBox(
+      child: Container(
         width: double.infinity,
         height: size,
       ),

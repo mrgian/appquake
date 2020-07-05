@@ -1,5 +1,6 @@
 import 'package:appquake/model/terremoto.dart';
 import 'package:appquake/pages/dettagli.dart';
+import 'package:appquake/utils/color.dart';
 import 'package:flutter/material.dart';
 
 class TerremotoCard extends StatelessWidget {
@@ -14,7 +15,7 @@ class TerremotoCard extends StatelessWidget {
         context,
         MaterialPageRoute(builder: (context) => Dettagli(data: data)),
       ),
-      child: SizedBox(
+      child: Container(
         width: double.infinity,
         child: Container(
           margin: EdgeInsets.all(15),
@@ -88,20 +89,8 @@ class TextMagnitudo extends StatelessWidget {
         style: TextStyle(
             fontFamily: 'googlesans',
             fontSize: 25,
-            color: getColorFromValue(magnitudo)),
+            color: ColorUtils.getColorFromValue(magnitudo)),
       ),
     );
-  }
-
-  Color getColorFromValue(double val) {
-    int g = (255 - 50 * (val - 1)).round();
-    if (g > 255) g = 255;
-    if (g < 0) g = 0;
-    return Color.fromARGB(255, 255, g, 50);
-
-    /*if (val < 3) return Color(0xfffbc02d);
-    if (val >= 3 && val <= 4.1) return Color(0xfff57c00);
-
-    return Color(0xffe64a19);*/
   }
 }

@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
                   itemCount: snap.data.length + 1,
                   itemBuilder: (context, i) {
                     if (i == 0)
-                      return SizedBox(width: double.infinity, height: 10);
+                      return Container(width: double.infinity, height: 10);
                     else
                       return TerremotoCard(data: snap.data[i - 1]);
                   },
