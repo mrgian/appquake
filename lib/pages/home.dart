@@ -12,11 +12,37 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Text("AppQuake",
-              style: TextStyle(fontFamily: 'googlesans', fontSize: 30)),
+          padding: EdgeInsets.only(top: 10),
+          child: Text(
+            "AppQuake",
+            style: TextStyle(fontFamily: 'googlesans', fontSize: 30),
+          ),
         ),
         elevation: 0.0,
+        automaticallyImplyLeading: false,
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: 10, right: 10),
+            child: Builder(
+              builder: (context) => IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
+              ),
+            ),
+          ),
+        ],
+      ),
+      endDrawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              title: Text('Terremoti recenti'),
+            ),
+            ListTile(
+              title: Text('Statistiche'),
+            ),
+          ],
+        ),
       ),
       body: Stack(
         children: <Widget>[
