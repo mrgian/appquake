@@ -54,7 +54,8 @@ class Home extends StatelessWidget {
           FutureBuilder(
             future: WebClient.getTerremoti(),
             builder: (context, snap) {
-              if (snap.hasData)
+              if (snap.connectionState == ConnectionState.done) if (snap
+                  .hasData)
                 return ListView.builder(
                   itemCount: snap.data.length + 1,
                   itemBuilder: (context, i) {
@@ -64,6 +65,8 @@ class Home extends StatelessWidget {
                       return TerremotoCard(data: snap.data[i - 1]);
                   },
                 );
+              else
+                return Center(child: Text('Errore di rete'));
               else
                 return Center(child: CircularProgressIndicator());
             },
