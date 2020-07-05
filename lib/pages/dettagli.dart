@@ -1,4 +1,5 @@
 import 'package:appquake/model/terremoto.dart';
+import 'package:appquake/service/webclient.dart';
 import 'package:appquake/utils/color.dart';
 import 'package:appquake/widgets/gradient.dart';
 import 'package:flutter/material.dart';
@@ -37,27 +38,17 @@ class Dettagli extends StatelessWidget {
       ),
       body: Stack(
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              Expanded(
-                child: FutureBuilder(
-                  future: null,
-                  builder: (context, snap) {
-                    return Center(child: CircularProgressIndicator());
-                  },
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 270,
-                color: Colors.red,
-              )
-            ],
-          ),
-          WebView(
-            initialUrl:
-                'https://www.openstreetmap.org/export/embed.html?bbox=14.68385784389%2C40.570271357633%2C15.63614215611%2C41.289728642367&amp;layer=mapnik&amp;marker=40.93%2C15.16',
-            javascriptMode: JavascriptMode.unrestricted,
+          FutureBuilder(
+            future: WebClient.getMapLink(data),
+            builder: (context, snap) {
+              if (snap.hasData)
+                return WebView(
+                  initialUrl: snap.data,
+                  javascriptMode: JavascriptMode.unrestricted,
+                );
+              else
+                return Center(child: CircularProgressIndicator());
+            },
           ),
           AppBarGradient(size: 50),
           Positioned(

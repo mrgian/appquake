@@ -1,3 +1,5 @@
+import 'package:html/parser.dart';
+
 class Terremoto {
   final double valoreMagnitudo;
   final String tipoMagnitudo;
