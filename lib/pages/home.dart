@@ -1,3 +1,4 @@
+import 'package:appquake/pages/dettagli.dart';
 import 'package:appquake/service/webclient.dart';
 import 'package:appquake/widgets/terremoto_card.dart';
 import 'package:appquake/widgets/gradient.dart';
@@ -37,9 +38,13 @@ class Home extends StatelessWidget {
           children: <Widget>[
             ListTile(
               title: Text('Terremoti recenti'),
+              onTap: () => Navigator.pop(context),
             ),
             ListTile(
               title: Text('Statistiche'),
+              onTap: () => {
+                Navigator.pop(context),
+              },
             ),
           ],
         ),
