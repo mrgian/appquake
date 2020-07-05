@@ -1,5 +1,5 @@
 import 'package:appquake/service/webclient.dart';
-import 'package:appquake/widgets/TerremotoCard.dart';
+import 'package:appquake/widgets/terremoto_card.dart';
 import 'package:appquake/widgets/gradient.dart';
 import 'package:flutter/material.dart';
 

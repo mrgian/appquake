@@ -32,6 +32,9 @@ flutter:
     - family: googlesans
       fonts:
         - asset: assets/fonts/googlesans.ttf
+    - family: googlesanslight
+      fonts:
+        - asset: assets/fonts/googlesanslight.ttf
 
   # fonts:
   #   - family: Schyler
