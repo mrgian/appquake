@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
-import 'pages/home.dart';
-import 'service/webclient.dart';
+import 'package:appquake/pages/home/home.dart';
 
 void main() {
-  WebClient.getTerremoti();
   runApp(MyApp());
 }
 

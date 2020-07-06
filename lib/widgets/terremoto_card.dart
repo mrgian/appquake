@@ -1,5 +1,5 @@
 import 'package:appquake/model/terremoto.dart';
-import 'package:appquake/pages/dettagli.dart';
+import 'package:appquake/pages/dettagli/dettagli.dart';
 import 'package:appquake/utils/color.dart';
 import 'package:flutter/material.dart';
 

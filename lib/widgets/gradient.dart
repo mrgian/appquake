@@ -9,11 +9,12 @@ class AppBarGradient extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              stops: [0.3, 0.7],
-              colors: [Colors.white, Colors.white.withOpacity(0)])),
+        gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.3, 0.7],
+            colors: [Colors.white, Colors.white.withOpacity(0)]),
+      ),
       child: Container(
         width: double.infinity,
         height: size,

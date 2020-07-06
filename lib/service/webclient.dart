@@ -1,8 +1,9 @@
 import 'dart:convert' as convert;
-import 'package:appquake/model/terremoto.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
+
+import 'package:appquake/model/terremoto.dart';
 
 class WebClient {
   static Future<List<Terremoto>> parseTerremoti(String responseBody) async {
