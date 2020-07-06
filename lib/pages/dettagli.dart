@@ -23,18 +23,14 @@ class Dettagli extends StatelessWidget {
             style: TextStyle(fontFamily: 'googlesans', fontSize: 30),
           ),
         ),
-        elevation: 0.0,
-        actions: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(top: 10, right: 10),
-            child: Builder(
-              builder: (context) => IconButton(
-                icon: Icon(Icons.menu),
-                onPressed: () => Scaffold.of(context).openEndDrawer(),
-              ),
-            ),
+        leading: Padding(
+          padding: EdgeInsets.only(top: 13, left: 10),
+          child: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
           ),
-        ],
+        ),
+        elevation: 0.0,
       ),
       body: Stack(
         children: <Widget>[

@@ -1,8 +1,11 @@
+import 'package:appquake/model/terremoto.dart';
 import 'package:appquake/pages/dettagli.dart';
 import 'package:appquake/service/webclient.dart';
 import 'package:appquake/widgets/terremoto_card.dart';
 import 'package:appquake/widgets/gradient.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
@@ -49,31 +52,53 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      body: Stack(
-        children: <Widget>[
-          FutureBuilder(
-            future: WebClient.getTerremoti(),
-            builder: (context, snap) {
-              if (snap.connectionState == ConnectionState.done) if (snap
-                  .hasData)
-                return ListView.builder(
-                  itemCount: snap.data.length + 1,
-                  itemBuilder: (context, i) {
-                    if (i == 0)
-                      return Container(width: double.infinity, height: 10);
-                    else
-                      return TerremotoCard(data: snap.data[i - 1]);
-                  },
-                );
+      body: HomeBody(),
+    );
+  }
+}
+
+class HomeBody extends StatefulWidget {
+  HomeBody({Key key}) : super(key: key);
+
+  @override
+  _HomeBodyState createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends State<HomeBody> {
+  RefreshController controller = RefreshController(initialRefresh: true);
+  List<Terremoto> terremoti = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        SmartRefresher(
+          controller: controller,
+          header: MaterialClassicHeader(
+            backgroundColor: Colors.black,
+          ),
+          onLoading: () async {
+            terremoti = await WebClient.getTerremoti();
+            setState(() {});
+            controller.loadComplete();
+          },
+          onRefresh: () async {
+            terremoti = await WebClient.getTerremoti();
+            setState(() {});
+            controller.refreshCompleted();
+          },
+          child: ListView.builder(
+            itemCount: terremoti.length + 1,
+            itemBuilder: (context, i) {
+              if (i == 0)
+                return Container(width: double.infinity, height: 10);
               else
-                return Center(child: Text('Errore di rete'));
-              else
-                return Center(child: CircularProgressIndicator());
+                return TerremotoCard(data: terremoti[i - 1]);
             },
           ),
-          AppBarGradient(size: 50),
-        ],
-      ),
+        ),
+        AppBarGradient(size: 50),
+      ],
     );
   }
 }
