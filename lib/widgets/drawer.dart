@@ -1,7 +1,11 @@
+import 'package:appquake/pages/home/home.dart';
+import 'package:appquake/pages/statistiche/statistiche.dart';
 import 'package:flutter/material.dart';
 
-class HomeDrawer extends StatelessWidget {
-  const HomeDrawer({Key key}) : super(key: key);
+class MyDrawer extends StatelessWidget {
+  final bool home;
+
+  const MyDrawer({Key key, this.home}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +16,25 @@ class HomeDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.adjust),
               title: Text('Terremoti recenti'),
-              onTap: () => Navigator.pop(context),
+              onTap: () {
+                if (home)
+                  Navigator.pop(context);
+                else {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }
+              },
             ),
             ListTile(
               leading: Icon(Icons.details),
               title: Text('Statistiche'),
-              onTap: () => {
-                Navigator.pop(context),
+              onTap: () {
+                if (home) {
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Statistiche()));
+                } else
+                  Navigator.pop(context);
               },
             ),
             Expanded(

@@ -23,6 +23,24 @@ class WebClient {
     return parseTerremoti(response.body);
   }
 
+  static Future<Map<String, dynamic>> getStatistiche(String field) async {
+    var response;
+
+    if (field == null) {
+      try {
+        response = await http.get('https://mrgian.it/terremoti/stats');
+      } catch (e) {
+        return null;
+      }
+    }
+
+    print(response.body);
+
+    var map = convert.jsonDecode(response.body);
+
+    return map;
+  }
+
   static Future<String> getMapLink(Terremoto terremoto) async {
     var response = await http.get(terremoto.link);
     var body = response.body;

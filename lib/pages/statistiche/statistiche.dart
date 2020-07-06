@@ -1,11 +1,11 @@
-import 'package:appquake/widgets/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:appquake/pages/home/body.dart';
+import 'package:appquake/widgets/drawer.dart';
+import 'package:appquake/pages/statistiche/body.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key key}) : super(key: key);
+class Statistiche extends StatelessWidget {
+  const Statistiche({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
         title: Padding(
           padding: EdgeInsets.only(top: 10),
           child: Text(
-            "AppQuake",
+            "Statistiche",
             style: TextStyle(fontFamily: 'googlesans', fontSize: 30),
           ),
         ),
@@ -33,8 +33,8 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      endDrawer: MyDrawer(home: true),
-      body: HomeBody(),
+      endDrawer: MyDrawer(home: false),
+      body: StatisticheBody(),
     );
   }
 }
