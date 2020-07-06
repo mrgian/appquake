@@ -37,19 +37,35 @@ class Home extends StatelessWidget {
         ],
       ),
       endDrawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text('Terremoti recenti'),
-              onTap: () => Navigator.pop(context),
-            ),
-            ListTile(
-              title: Text('Statistiche'),
-              onTap: () => {
-                Navigator.pop(context),
-              },
-            ),
-          ],
+        child: SafeArea(
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                leading: Icon(Icons.adjust),
+                title: Text('Terremoti recenti'),
+                onTap: () => Navigator.pop(context),
+              ),
+              ListTile(
+                leading: Icon(Icons.details),
+                title: Text('Statistiche'),
+                onTap: () => {
+                  Navigator.pop(context),
+                },
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      'Sviluppata da Gianmatteo Palmieri',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: HomeBody(),
