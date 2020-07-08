@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'package:appquake/model/terremoto.dart';
-import 'package:appquake/service/webclient.dart';
+import 'package:appquake/webclient/webclient.dart';
 import 'package:appquake/utils/color.dart';
 import 'package:appquake/widgets/gradient.dart';
 
@@ -41,7 +41,7 @@ class DettagliBody extends StatelessWidget {
                 color: Colors.white.withOpacity(0.8),
               ),
               width: double.infinity,
-              height: 235,
+              height: 240,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

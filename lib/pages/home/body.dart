@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'package:appquake/model/terremoto.dart';
-import 'package:appquake/service/webclient.dart';
+import 'package:appquake/webclient/webclient.dart';
 import 'package:appquake/widgets/gradient.dart';
 import 'package:appquake/widgets/terremoto_card.dart';
 

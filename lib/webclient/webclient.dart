@@ -23,22 +23,27 @@ class WebClient {
     return parseTerremoti(response.body);
   }
 
-  static Future<Map<String, dynamic>> getStatistiche(String field) async {
-    var response;
+  static Future<List<Map<String, dynamic>>> getStatistiche() async {
+    List<Map<String, dynamic>> stats = new List();
 
-    if (field == null) {
-      try {
-        response = await http.get('https://mrgian.it/terremoti/stats');
-      } catch (e) {
-        return null;
-      }
+    try {
+      var response;
+
+      response = await http.get('https://mrgian.it/terremoti/stats');
+      stats.add(convert.jsonDecode(response.body));
+
+      response = await http
+          .get('https://mrgian.it/terremoti/stats?field=valoreMagnitudo');
+      stats.add(convert.jsonDecode(response.body));
+
+      response =
+          await http.get('https://mrgian.it/terremoti/stats?field=profondita');
+      stats.add(convert.jsonDecode(response.body));
+    } catch (e) {
+      return null;
     }
 
-    print(response.body);
-
-    var map = convert.jsonDecode(response.body);
-
-    return map;
+    return stats;
   }
 
   static Future<String> getMapLink(Terremoto terremoto) async {
