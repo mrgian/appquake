@@ -26,28 +26,31 @@ class _HomeBodyState extends State<HomeBody> {
           header: MaterialClassicHeader(
             backgroundColor: Colors.black,
           ),
-          onLoading: () async {
-            terremoti = await WebClient.getTerremoti();
-            setState(() {});
-            controller.loadComplete();
-          },
           onRefresh: () async {
             terremoti = await WebClient.getTerremoti();
             setState(() {});
             controller.refreshCompleted();
           },
-          child: ListView.builder(
-            itemCount: terremoti.length + 1,
-            itemBuilder: (context, i) {
-              if (i == 0)
-                return Container(width: double.infinity, height: 10);
-              else
-                return TerremotoCard(data: terremoti[i - 1]);
-            },
-          ),
+          child: getBody(),
         ),
         AppBarGradient(size: 50),
       ],
+    );
+  }
+
+  Widget getBody() {
+    if (terremoti == null) return Center(child: Text('Errore di rete'));
+
+    if (terremoti.length == 0) return Container(width: 0, height: 0);
+
+    return ListView.builder(
+      itemCount: terremoti.length + 1,
+      itemBuilder: (context, i) {
+        if (i == 0)
+          return Container(width: double.infinity, height: 10);
+        else
+          return TerremotoCard(data: terremoti[i - 1]);
+      },
     );
   }
 }

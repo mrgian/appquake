@@ -14,7 +14,7 @@ class StatisticheBody extends StatefulWidget {
 
 class _HomeBodyState extends State<StatisticheBody> {
   RefreshController controller = RefreshController(initialRefresh: true);
-  List<Map<String, dynamic>> stats;
+  List<Map<String, dynamic>> stats = [];
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,6 @@ class _HomeBodyState extends State<StatisticheBody> {
           header: MaterialClassicHeader(
             backgroundColor: Colors.black,
           ),
-          onLoading: () async {
-            stats = await WebClient.getStatistiche();
-            setState(() {});
-            controller.loadComplete();
-          },
           onRefresh: () async {
             stats = await WebClient.getStatistiche();
             setState(() {});
@@ -43,33 +38,34 @@ class _HomeBodyState extends State<StatisticheBody> {
   }
 
   Widget body() {
-    if (stats == null)
-      return Container(width: 0, height: 0);
-    else
-      return SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 10,
-            ),
-            OneValueCard(
-                value: stats[0]['mediaGiorno'] as double,
-                desc: 'terremoti in un giorno'),
-            ThreeValueCard(
-              min: stats[1]['min'],
-              max: stats[1]['max'],
-              avg: stats[1]['avg'],
-              field: "magnitudo",
-            ),
-            ThreeValueCard(
-              min: stats[2]['min'],
-              max: stats[2]['max'],
-              avg: stats[2]['avg'],
-              field: "profondità",
-            ),
-          ],
-        ),
-      );
+    if (stats == null) return Center(child: Text('Errore di rete'));
+
+    if (stats.length == 0) return Container(width: 0, height: 0);
+
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 10,
+          ),
+          OneValueCard(
+              value: stats[0]['mediaGiorno'] as double,
+              desc: 'terremoti in un giorno'),
+          ThreeValueCard(
+            min: stats[1]['min'],
+            max: stats[1]['max'],
+            avg: stats[1]['avg'],
+            field: "magnitudo",
+          ),
+          ThreeValueCard(
+            min: stats[2]['min'],
+            max: stats[2]['max'],
+            avg: stats[2]['avg'],
+            field: "profondità",
+          ),
+        ],
+      ),
+    );
   }
 }
 
