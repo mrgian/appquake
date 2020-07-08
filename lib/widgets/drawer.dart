@@ -1,4 +1,3 @@
-import 'package:appquake/pages/home/home.dart';
 import 'package:appquake/pages/statistiche/statistiche.dart';
 import 'package:flutter/material.dart';
 
