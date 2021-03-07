@@ -6,6 +6,8 @@ import 'package:html/parser.dart' as html;
 import 'package:appquake/model/terremoto.dart';
 
 class WebClient {
+  static const String baseUrl = 'https://gian.im/terremoti';
+
   static Future<List<Terremoto>> parseTerremoti(String responseBody) async {
     var parsed = convert.jsonDecode(responseBody).cast<Map<String, dynamic>>();
     return parsed.map<Terremoto>((json) => Terremoto.fromJson(json)).toList();
@@ -15,7 +17,7 @@ class WebClient {
     var response;
 
     try {
-      response = await http.get('https://mrgian.it/terremoti');
+      response = await http.get(baseUrl);
     } catch (e) {
       return null;
     }
@@ -29,15 +31,13 @@ class WebClient {
     try {
       var response;
 
-      response = await http.get('https://mrgian.it/terremoti/stats');
+      response = await http.get(baseUrl + '/stats');
       stats.add(convert.jsonDecode(response.body));
 
-      response = await http
-          .get('https://mrgian.it/terremoti/stats?field=valoreMagnitudo');
+      response = await http.get(baseUrl + '/stats?field=valoreMagnitudo');
       stats.add(convert.jsonDecode(response.body));
 
-      response =
-          await http.get('https://mrgian.it/terremoti/stats?field=profondita');
+      response = await http.get(baseUrl + '/stats?field=profondita');
       stats.add(convert.jsonDecode(response.body));
     } catch (e) {
       return null;
