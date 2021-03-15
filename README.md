@@ -13,5 +13,3 @@ Quest'app permette di visualizzare informazioni sui terremoti registrati dalla *
 
 I dati sono ottenuti dalla [Terremoti REST API](https://github.com/mrgian/progetto-oop).
 
-AppQuake per Android è disponibile al download sul Google Play Store a [questo indirizzo](https://play.google.com/store/apps/details?id=it.mrgian.appquake)
-
