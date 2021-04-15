@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/mrgian/progetto-oop/raw/master/images/icons/icon.png"></p>
+<p align="center"><img src="https://github.com/mrgian/progetto-oop/raw/master/images/icons/icon.png" height=100></p>
 <h1 align="center">AppQuake</h1>
 <h3 align="center">
 App per informazioni sui terremoti
