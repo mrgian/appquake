@@ -5,7 +5,7 @@ App per informazioni sui terremoti
 </h3>
 
 
-<img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_2.png" width="33%"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_3.png" width="33%"> <img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_4.png" width="33%">
+<p align="center"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_2.png" width="33%"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_3.png" width="33%"> <img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_4.png" width="33%"></p>
 
 ## Descrizione
 
