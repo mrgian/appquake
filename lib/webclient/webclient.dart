@@ -23,7 +23,7 @@ class WebClient {
       return null;
     }
 
-    return parseTerremoti(utf8.decode(response.bodyBytes));
+    return parseTerremoti(response.body);
   }
 
   static Future<List<Map<String, dynamic>>> getStatistiche() async {
@@ -33,14 +33,14 @@ class WebClient {
       var response;
 
       response = await http.get(Uri.parse(baseUrl + '/stats'));
-      stats.add(convert.jsonDecode(utf8.decode(response.bodyBytes)));
+      stats.add(convert.jsonDecode(response.body));
 
       response =
           await http.get(Uri.parse(baseUrl + '/stats?field=valoreMagnitudo'));
-      stats.add(convert.jsonDecode(utf8.decode(response.bodyBytes)));
+      stats.add(convert.jsonDecode(response.body));
 
       response = await http.get(Uri.parse(baseUrl + '/stats?field=profondita'));
-      stats.add(convert.jsonDecode(utf8.decode(response.bodyBytes)));
+      stats.add(convert.jsonDecode(response.body));
     } catch (e) {
       return null;
     }
@@ -50,9 +50,11 @@ class WebClient {
 
   static Future<String> getMapLink(Terremoto terremoto) async {
     var response = await http.get(Uri.parse(terremoto.link));
-    var body = response.body;
-    var link =
-        html.parse(body).getElementsByTagName('iframe').first.attributes['src'];
+    var link = html
+        .parse(response.body)
+        .getElementsByTagName('iframe')
+        .first
+        .attributes['src'];
     return link;
   }
 }
