@@ -15,5 +15,5 @@ I dati sono ottenuti dalla [Terremoti REST API](https://github.com/mrgian/proget
 
 ## Download
 
-L'app è disponibile al **download** sul [Google Play Store](https://play.google.com/store/apps/details?id=it.mrgian.appquake)
+L'app è disponibile al download sul [Google Play Store](https://play.google.com/store/apps/details?id=it.mrgian.appquake)
 
