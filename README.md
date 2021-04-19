@@ -5,7 +5,7 @@ App per informazioni sui terremoti
 </h3>
 
 
-<p align="center"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_2.png" width="33%"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_3.png" width="33%"> <img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_4.png" width="33%"></p>
+<p align="center"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_2.png" width="32%"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_3.png" width="32%"> <img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_4.png" width="32%"></p>
 
 Quest'app permette di visualizzare informazioni sui terremoti registrati dalla **Rete Sismica Nazionale** negli ultimi sette giorni.
 
