@@ -7,9 +7,13 @@ App per informazioni sui terremoti
 
 <p align="center"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_2.png" width="32%"><img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_3.png" width="32%"> <img src="https://github.com/mrgian/appquake/raw/master/screenshot/screenshot_4.png" width="32%"></p>
 
+## Descrizione
+
 Quest'app permette di visualizzare informazioni sui terremoti registrati dalla **Rete Sismica Nazionale** negli ultimi sette giorni.
 
 I dati sono ottenuti dalla [Terremoti REST API](https://github.com/mrgian/progetto-oop).
+
+## Download
 
 L'app è disponibile al **download** sul [Google Play Store](https://play.google.com/store/apps/details?id=it.mrgian.appquake)
 
