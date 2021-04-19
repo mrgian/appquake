@@ -3,7 +3,7 @@ description: App mobile che mostra i terremoti registrati negli ultimi sette gio
 
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.5+5
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
