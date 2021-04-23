@@ -9,7 +9,7 @@ App per informazioni sui terremoti
 
 ## Descrizione
 
-Quest'app permette di visualizzare informazioni sui terremoti registrati dalla **Rete Sismica Nazionale** negli ultimi sette giorni.
+AppQuake permette di visualizzare informazioni sui terremoti registrati dalla **Rete Sismica Nazionale** negli ultimi sette giorni.
 
 I dati sono ottenuti dalla [Terremoti REST API](https://github.com/mrgian/progetto-oop).
 
